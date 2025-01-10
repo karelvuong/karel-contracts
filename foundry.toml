@@ -1,0 +1,40 @@
+[profile.default]
+src = "src"
+out = "out"
+test = "test"
+libs = ["lib"]
+solc_version = "0.8.28"
+via_ir = true
+evm_version = "cancun"
+auto_detect_solc = false
+optimizer = true
+optimizer_runs = 1_000
+gas_limit = 1_000_000_000
+
+[fmt]
+bracket_spacing = false
+line_length = 100 
+quote_style = "double"
+
+[profile.default.fuzz]
+runs = 256
+
+[invariant]
+runs = 10
+depth = 15
+
+[rpc_endpoints]
+ethereum = "${RPC_URL_ETHEREUM}"
+arbitrum_mainnet = "${RPC_URL_ARBITRUM_MAINNET}"
+base_mainnet = "${RPC_URL_ARBITRUM_MAINNET}"
+sepolia = "${RPC_URL_SEPOLIA}"
+arbitrum_sepolia = "${RPC_URL_ARBITRUM_SEPOLIA}"
+base_sepolia = "${RPC_URL_BASAE_SEPOLIA}"
+
+[etherscan]
+ethereum = { key = "${ETHERSCAN_API_KEY}", chain = 1 }
+arbitrum_mainnet = { key = "${ETHERSCAN_API_KEY}", chain = 42161 }
+base_mainnet = { key = "${ETHERSCAN_API_KEY}", chain = 8453 }
+sepolia = { key = "${ETHERSCAN_API_KEY}", chain = 11155111 }
+arbitrum_sepolia = { key = "${ETHERSCAN_API_KEY}", chain = 421614 }
+base_sepolia = { key = "${ETHERSCAN_API_KEY}", chain = 84532 }

@@ -1,0 +1,30 @@
+{
+	"remappings": [
+		"forge-std/=lib/forge-std/src/",
+		"solady/=lib/solady/src/"
+	],
+	"optimizer": {
+		"enabled": true,
+		"runs": 100000
+	},
+	"metadata": {
+		"useLiteralContent": false,
+		"bytecodeHash": "ipfs",
+		"appendCBOR": true
+	},
+	"outputSelection": {
+		"*": {
+			"*": [
+				"evm.bytecode",
+				"evm.deployedBytecode",
+				"devdoc",
+				"userdoc",
+				"metadata",
+				"abi"
+			]
+		}
+	},
+	"evmVersion": "cancun",
+	"viaIR": false,
+	"libraries": {}
+}

@@ -1,0 +1,16 @@
+{
+    "name": "karel-contracts",
+    "version": "0.0.1",
+    "license": "MIT",
+    "scripts": {
+      "build": "forge build"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/karelvuong/karel-contracts.git"
+    },
+    "devDependencies": {
+      "hardhat-deploy": "^0.14.0"
+    }
+  }
+  
