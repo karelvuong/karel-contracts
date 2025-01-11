@@ -5,7 +5,8 @@ import {SafeTransferLib} from "solady/src/utils/SafeTransferLib.sol";
 import {ReentrancyGuard} from "solady/src/utils/ReentrancyGuard.sol";
 
 /// @title Disperse
-/// @notice Efficiently disperse ETH and ERC20 tokens to multiple recipients
+/// @notice Efficiently disperse MAGIC and ERC20 tokens to multiple recipients
+/// Note: `safeTransferETH` will support the chain's native token
 /// @author Modified from original Disperse contract with Solady optimizations
 contract Disperse is ReentrancyGuard {
     using SafeTransferLib for address;
@@ -13,7 +14,7 @@ contract Disperse is ReentrancyGuard {
     error ArrayLengthMismatch();
     error ZeroAddress();
 
-    /// @notice Disperse ETH to multiple recipients
+    /// @notice Disperse MAGIC to multiple recipients
     /// @param recipients Array of recipient addresses
     /// @param values Array of values to send to each recipient
     function disperseMAGIC(address[] calldata recipients, uint256[] calldata values)
@@ -34,7 +35,7 @@ contract Disperse is ReentrancyGuard {
             uint256 amount = values[i];
             total += amount;
 
-            // Use Solady's optimized ETH transfer
+            // Use Solady's optimized transfer
             recipient.safeTransferETH(amount);
 
             unchecked {
@@ -42,7 +43,7 @@ contract Disperse is ReentrancyGuard {
             }
         }
 
-        // Return excess ETH if any
+        // Return excess MAGIC if any
         uint256 balance = address(this).balance;
         if (balance > 0) {
             msg.sender.safeTransferETH(balance);
